@@ -1,0 +1,91 @@
+#ifndef __LOBBY_BANK_AUTHEN_MSG_H__
+#define __LOBBY_BANK_AUTHEN_MSG_H__
+
+#include "lobby_bank_client_msg.h"
+
+enum
+{
+	//登录服务器向认证服务器发起
+	MOBILE_LOGIN_SERVER_BANK_AUTHEN_REQ = 0x8800,
+	MOBILE_LOGIN_SERVER_BANK_GET_COIN_REQ,
+	MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_REQ,
+	MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_REQ,
+
+	//认证服务器对登录服务器回应
+	MOBILE_LOGIN_SERVER_BANK_AUTHEN_SUCCESS_RSP,
+	MOBILE_LOGIN_SERVER_BANK_AUTHEN_ERROR_RSP,
+	MOBILE_LOGIN_SERVER_BANK_GET_COIN_SUCCESS_RSP,
+	MOBILE_LOGIN_SERVER_BANK_GET_COIN_ERROR_RSP,
+	MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_SUCCESS_RSP,
+	MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_ERROR_RSP,
+	MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_SUCCESS_RSP,
+	MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_ERROR_RSP
+};
+
+struct tagBaseNodeInfo
+{
+	unsigned long ulPlayerNode;     //转发给验证服务器, 加上大厅客户端连接对象
+	unsigned long ulPlayerNodeId;   //客户端连接对象ID
+};
+
+//MOBILE_LOGIN_SERVER_BANK_AUTHEN_REQ
+typedef struct tagMobileLoginServerBankAuthenReq : public tagLobbyBankClientAuthenReq, public tagBaseNodeInfo
+{
+}MobileLoginServerBankAuthenReq, *MobileLoginServerBankAuthenReqPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_AUTHEN_SUCCESS_RSP
+typedef struct tagMobileLoginServerBankAuthenSuccessRsp : public tagLobbyBankClientAuthenSuccessRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankAuthenSuccessRsp, *MobileLoginServerBankAuthenSuccessRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_AUTHEN_ERROR_RSP
+typedef struct tagMobileLoginServerBankAuthenErrorRsp : public tagLobbyBankClientAuthenErrorRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankAuthenErrorRsp, *MobileLoginServerBankAuthenErrorRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_GET_COIN_REQ
+typedef struct tagMobileLoginServerBankGetCoinReq : public tagLobbyBankClientGetCoinReq, public tagBaseNodeInfo
+{
+}MobileLoginServerBankGetCoinReq, *MobileLoginServerBankGetCoinReqPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_GET_COIN_SUCCESS_RSP
+typedef struct tagMobileLoginServerBankGetCoinSuccessRsp : public tagLobbyBankClientGetCoinSuccessRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankGetCoinSuccessRsp, *MobileLoginServerBankGetCoinSuccessRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_GET_COIN_ERROR_RSP
+typedef struct tagMobileLoginServerBankGetCoinErrorRsp : public tagLobbyBankClientGetCoinErrorRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankGetCoinErrorRsp, *MobileLoginServerBankGetCoinErrorRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_REQ
+typedef struct tagMobileLoginServerBankSaveCoinReq : public tagLobbyBankClientSaveCoinReq, public tagBaseNodeInfo
+{
+}MobileLoginServerBankSaveCoinReq, *MobileLoginServerBankSaveCoinReqPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_SUCCESS_RSP
+typedef struct tagMobileLoginServerBankSaveCoinSuccessRsp : public tagLobbyBankClientSaveCoinSuccessRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankSaveCoinSuccessRsp, *MobileLoginServerBankSaveCoinSuccessRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_SAVE_COIN_ERROR_RSP
+typedef struct tagMobileLoginServerBankSaveCoinErrorRsp : public tagLobbyBankClientSaveCoinErrorRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankSaveCoinErrorRsp, *MobileLoginServerBankSaveCoinErrorRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_REQ
+typedef struct tagMobileLoginServerBankModifyPasswordReq : public tagLobbyBankClientModifyPasswordReq, public tagBaseNodeInfo
+{
+}MobileLoginServerBankModifyPasswordReq, *MobileLoginServerBankModifyPasswordReqPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_SUCCESS_RSP
+typedef struct tagMobileLoginServerBankModifyPasswordSuccessRsp : public tagLobbyBankClientModifyPasswordSuccessRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankModifyPasswordSuccessRsp, *MobileLoginServerBankModifyPasswordSuccessRspPtr;
+
+//MOBILE_LOGIN_SERVER_BANK_MODIFY_PASSWORD_ERROR_RSP
+typedef struct tagMobileLoginServerBankModifyPasswordErrorRsp : public tagLobbyBankClientModifyPasswordErrorRsp, public tagBaseNodeInfo
+{
+}MobileLoginServerBankModifyPasswordErrorRsp, *MobileLoginServerBankModifyPasswordErrorRspPtr;
+
+#endif //__LOBBY_BANK_AUTHEN_MSG_H__
